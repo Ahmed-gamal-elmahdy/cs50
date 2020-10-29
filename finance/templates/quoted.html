@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <form action="/quoted" method="post">
+        <div class="form-group">
+            <caption>Data of {{name}} [{{symbol}}]</caption>
+            <table style="width:100%">
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <th>{{symbol}}</th>
+                    <th>{{name}}</th>
+                    <th>{{price}}</th>
+                </tr>
+            </table>
+        </div>
+    </form>
+{% endblock %}

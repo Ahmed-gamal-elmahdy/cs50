@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <form action="/index" method="post">
+        <div class="form-group">
+            <caption>Index</caption>
+            <table style="width:100%">
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+                    {% for i in range(length) %}
+                <tr>
+                    <th>{{symbols[i]}}</th>
+                    <th>{{names[i]}}</th>
+                    <th>{{shares[i]}}</th>
+                    <th>{{price[i]}}$</th>
+                    <th>{{total[i]}}$</th>
+                </tr>
+                    {% endfor %}
+                <tr>
+                    <th>Cash</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>{{cash}}$</th>
+                </tr>
+                <hr style="height:2px;border-width:0;color:green;background-color:gray">
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th style="height:5px;border-width:0;color:green;background-color:white">{{final}}$</th>
+                </tr>
+            </table>
+        </div>
+    </form>
+{% endblock %}
