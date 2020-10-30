@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="post">
+        <div class="form-group">
+            <label>Username:</label>
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="enter username" type="text">
+        </div>
+        <div class="form-group">
+            <label>Password:</label>
+            <input class="form-control" name="password" placeholder="Password" type="password">
+        </div>
+        <div class="form-group">
+            <label>Repeat password:</label>
+            <input class="form-control" name="Re-enter password" placeholder="Repeat Password" type="password">
+        </div>
+        <div class="form-group">
+            <label>Admin Only:</label>
+            <input class="form-control" name="serial" placeholder="Serial" type="password" color="red">
+            <small class="form-text text-muted">Type the secret serial to gain admin access</small>
+        </div>
+        <button class="btn btn-primary color" type="submit">Register</button>
+    </form>
+{% endblock %}

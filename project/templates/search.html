@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Inventory
+{% endblock %}
+
+{% block main %}
+    <form action="/search" method="post">
+        <div class="form-group">
+            <caption>Balance = {{cash}} $</caption>
+        </div>
+        <div class="form-group">
+            <label>Search by:</label>
+            <div class="form-group">
+                <select name=option placeholder = Option>
+                    <option name="title">Title</option>
+                    <option name="author">Author</option>
+                    <option name="dop">Date of publish</option>
+                </select>
+            </div>
+            <input autocomplete="off" autofocus class="form-control" name="title" placeholder="Search" type="text">
+            <button class="btn btn-primary color" type="submit">Search</button>
+        </div>
+    </form>
+
+{% endblock %}

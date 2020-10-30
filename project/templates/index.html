@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <table style="width:100%">
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+
+                {% for i in range(l) %}
+                    {% if shares[i] == 0 %}
+                    {%else%}
+                        <tr>
+                        <td>{{symbols[i]}}</td>
+                        <td>{{names[i]}}</td>
+                        <td>{{shares[i]}}</td>
+                        <td>${{price[i]}}</td>
+                        <td>${{total[i]}}</td>
+                        </tr>
+                    {%endif%}
+                {%endfor%}
+                <tr>
+                    <th>CASH</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <td>${{cash}}</td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>${{totals}}</th>
+                </tr>
+
+            </table>
+{% endblock %}

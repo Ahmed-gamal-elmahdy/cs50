@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Inventory
+{% endblock %}
+
+{% block main %}
+    <form action="/inventory" method="post">
+        <div class="form-group">
+            <caption>Balance = {{cash}} $</caption>
+            <table style="width:100%">
+                <tr>
+                    <th>Title</th>
+                    <th>author</th>
+                    <th>Date of Publish</th>
+                    <th>genre</th>
+                    <th>price</th>
+                </tr>
+                    {% for i in range(length) %}
+                <tr>
+                    <th>{{title[i]}}</th>
+                    <th>{{author[i]}}</th>
+                    <th>{{DoP[i]}}</th>
+                    <th>{{genre[i]}}</th>
+                    <th>{{price[i]}}$</th>
+
+                </tr>
+                    {% endfor %}
+
+        </div>
+    </form>
+{% endblock %}

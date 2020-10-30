@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- documentation at http://getbootstrap.com/docs/4.1/, alternative themes at https://bootswatch.com/ -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- https://favicon.io/emoji-favicons/money-mouth-face/ -->
+        <link href="/static/1.ico" rel="icon">
+
+        <link href="/static/styles.css" rel="stylesheet">
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+        <title>TZ: {% block title %}{% endblock %}</title>
+
+    </head>
+
+    <body class="background">
+
+        <nav class="navbar navbar-expand-md background">
+            <a class="navbar-brand" href="/"><img src="/static/logo.png" width="250" height="100"></a>
+            <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse sticky-top btn-group btn-group-lg" id="navbar">
+                {% if session.user_id %}
+                    <button type="button" class="btn btn-secondary" onclick="location.href='/buy';">Buy</button>
+                    <button type="button" class="btn btn-secondary" onclick="location.href='/search';">Search</button>
+                    <button type="button" class="btn btn-secondary" onclick="location.href='/inventory';">Inventory</button>
+                    <button type="button" class="btn btn-default empty" ></button>
+
+                    <div class="btn-group btn-group-lg" role="group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    {{session["user_name"]}}
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <a class="dropdown-item" href="/balance">Add funds</a>
+                            <a class="dropdown-item" href="/history">Purchase History</a>
+                            <a class="dropdown-item" href="/changename">Change name</a>
+                            <a class="dropdown-item" href="/changepassword">Change Password</a>
+                            <a class="dropdown-item" href="/logout">Log Out</a>
+                            {% if session["user_state"]== 1 %}
+                                <a class="dropdown-item" href="/ban">Ban an account</a>
+                                <a class="dropdown-item" href="/addbook">Add a book</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% else %}
+                    <button type="button" class="btn btn-default empty"></button>
+                    <button type="button" class="btn btn-default empty"></button>
+                    <button type="button" class="btn btn-default empty"></button>
+                    <button type="button" class="btn btn-secondary" onclick="location.href='/login';">Log in</button>
+                    <button type="button" class="btn btn-secondary" onclick="location.href='/register';">Register</button>
+                {% endif %}
+            </div>
+        </nav>
+
+        {% if get_flashed_messages() %}
+            <header>
+                <div class="alert alert-primary border text-center" role="alert">
+                    {{ get_flashed_messages() | join(" ") }}
+                </div>
+            </header>
+        {% endif %}
+
+        <main class="container p-5">
+            {% block main %}{% endblock %}
+        </main>
+
+        <footer class="small text-center text-muted">
+            All Rights Reserved for Team Zengo productions.
+        </footer>
+
+    </body>
+
+</html>

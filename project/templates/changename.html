@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Change username
+{% endblock %}
+
+{% block main %}
+    <form action="/changename" method="post">
+        <div class="form-group">
+            <label>New Username:</label>
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Enter username" type="text">
+        </div>
+        <div class="form-group">
+            <label>Repeat Username:</label>
+            <input autocomplete="off" autofocus class="form-control" name="Re-enter username" placeholder="Repeat username" type="text">
+        </div>
+        <div class="form-group">
+            <label>Password:</label>
+            <input autocomplete="off" autofocus class="form-control" name="password" placeholder="Enter password" type="password">
+        </div>
+        <button class="btn btn-primary color" type="submit">Change</button>
+    </form>
+{% endblock %}

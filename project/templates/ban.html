@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Ban
+{% endblock %}
+
+{% block main %}
+    <form action="/ban" method="post">
+        <div class="form-group">
+            <label>Username:</label>
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="enter username" type="text">
+        </div>
+        <button class="btn btn-primary color" type="submit">Ban</button>
+    </form>
+{% endblock %}

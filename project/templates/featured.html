@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Featured
+{% endblock %}
+
+{% block main %}
+    <h1 style="color:purple;font-size:40px;">Featured</h1>
+    <form action="/featured" method="post">
+        <div class="form-group">
+            <table style="width:100%">
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Price</th>
+                    <th>Date of Publish</th>
+
+                </tr>
+                    {% for i in range(l) %}
+                <tr>
+                    <td>{{title[i]}}</td>
+                    <td>{{author[i]}}</td>
+                    <td>{{price[i]}}$</td>
+                    <td>{{DoP[i]}}</td>
+                    <td><a class="nav-link" href="/buy">BUY</a></td>
+                </tr>
+                    {% endfor %}
+
+        </div>
+    </form>
+{% endblock %}
